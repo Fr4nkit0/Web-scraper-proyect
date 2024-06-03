@@ -1,0 +1,13 @@
+package com.example.persistence.repository;
+
+import com.example.persistence.entity.WebPage;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface SearchRepository extends JpaRepository<WebPage,Integer> {
+    List<WebPage> findByUrlContaining (String url) ;
+    List<WebPage> findByDescriptionContaining(String description);
+}
